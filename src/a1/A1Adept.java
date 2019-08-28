@@ -23,11 +23,12 @@ public class A1Adept {
 		String[] customerNames = new String[numOfCustomers];
 		int[] howManyBought = new int[numOfItems];
 
+		// organizing customer data
 		for (int i = 0; i < numOfCustomers; i++) {
-			customerNames[i] = scan.next() + scan.next();
+			customerNames[i] = scan.next() + " " + scan.next();
 			int numOfItemsBought = scan.nextInt();
 
-			// reset array per customer
+			// reset specific item array data per customer
 			for (int j = 0; j < howManyBought.length; j++) {
 				howManyBought[j] = 0;
 			}
@@ -41,9 +42,12 @@ public class A1Adept {
 					if (nameOfEach.equals(namesOfItems[k])) {
 						howManyBought[k] = quantityEach;
 					}
-					System.out.println(i + ". " + j + ". " + howManyBought[k]);
+					
+					// checking specific item arr
+//					System.out.println(i + ". " + j + ". " + howManyBought[k]);
 				}
-				System.out.println();
+				// just to make output look readable when testing
+//				System.out.println();
 			}
 			
 			for (int j = 0; j < howManyBought.length; j++) {
@@ -51,7 +55,48 @@ public class A1Adept {
 					priceTotal[i] = priceTotal[i] + howManyBought[j] * pricesOfItems[j];
 				}
 			}
-			System.out.println("$" + priceTotal[i]);
+//			System.out.println("$" + priceTotal[i]);
+			
 		}
+		
+		// biggest function
+		double biggestPrice = 0;
+		for (int i = 0; i < priceTotal.length; i++) {
+			if (biggestPrice <= priceTotal[i]) {
+				biggestPrice =  priceTotal[i];
+			}
+		}
+		String biggestPriceString = String.format("%.2f", biggestPrice);
+
+		for (int i = 0; i < priceTotal.length; i++) {
+			if (biggestPrice == priceTotal[i]) {
+				System.out.println("Biggest: " + customerNames[i] + 
+						" (" + biggestPriceString + ")");
+			}
+		}
+		
+		// smallest function
+		double smallestPrice = 2147483647;
+		for (int i = 0; i < priceTotal.length; i++) {
+			if (smallestPrice >= priceTotal[i]) {
+				smallestPrice =  priceTotal[i];
+			}
+		}
+		String smallestPriceString = String.format("%.2f", smallestPrice);
+
+		for (int i = 0; i < priceTotal.length; i++) {
+			if (smallestPrice == priceTotal[i]) {
+				System.out.println("Smallest: " + customerNames[i] + 
+						" (" + smallestPriceString + ")");
+			}
+		}
+		
+		// avg function
+		double averagePrice = 0;
+		for (int i = 0; i < priceTotal.length; i++) {
+			averagePrice = averagePrice + priceTotal[i];
+		}
+		String averagePriceString = String.format("%.2f", averagePrice / numOfCustomers);
+		System.out.println("Average: " + averagePriceString);
 	}
 }
