@@ -96,7 +96,7 @@ public class A1Adept {
 		for (int i = 0; i < priceTotal.length; i++) {
 			averagePrice = averagePrice + priceTotal[i];
 		}
-		String averagePriceString = String.format("%.2f", averagePrice / numOfCustomers);
+		String averagePriceString = String.format("%.2f", averagePrice / priceTotal.length);
 		System.out.println("Average: " + averagePriceString);
 	}
 }
