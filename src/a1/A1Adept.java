@@ -12,7 +12,7 @@ public class A1Adept {
 
 		String[] namesOfItems = new String[numOfItems];
 		double[] pricesOfItems = new double[numOfItems];
-
+ 
 		for (int i = 0; i < numOfItems; i++) {
 			namesOfItems[i] = scan.next();
 			pricesOfItems[i] = scan.nextDouble();
