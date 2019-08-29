@@ -40,7 +40,7 @@ public class A1Adept {
 				for (int k = 0; k < numOfItems; k++) {
 
 					if (nameOfEach.equals(namesOfItems[k])) {
-						howManyBought[k] = quantityEach;
+						howManyBought[k] = howManyBought[k] + quantityEach;
 					}
 					
 					// checking specific item arr
@@ -95,6 +95,7 @@ public class A1Adept {
 		double averagePrice = 0;
 		for (int i = 0; i < priceTotal.length; i++) {
 			averagePrice = averagePrice + priceTotal[i];
+//			System.out.println(averagePrice);
 		}
 		String averagePriceString = String.format("%.2f", averagePrice / priceTotal.length);
 		System.out.println("Average: " + averagePriceString);
