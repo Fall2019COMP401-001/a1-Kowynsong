@@ -9,10 +9,12 @@ public class A1Novice {
 		Scanner scan = new Scanner(System.in);
 		int numOfCustomers = scan.nextInt();
 		double customerTotal = 0;
+		
 		for (int howManyCustomers = 0; howManyCustomers < numOfCustomers; howManyCustomers++) {
 			String firstName = scan.next();
 			String lastName = scan.next();
 			int numOfItems = scan.nextInt();
+			
 			for (int howManyItems = 0; howManyItems < numOfItems; howManyItems++) {
 				int numOfEachItem = scan.nextInt();
 				String itemBought = scan.next();
