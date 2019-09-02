@@ -25,6 +25,7 @@ public class A1Jedi {
 		int[] howManyBought = new int[numOfItems];
 		int[] totalHowManyBought = new int[numOfItems];
 		int[] ifCustomerBought = new int[numOfItems];
+		String[] nameOfEachItemBought = new String[numOfItems];
 
 		for (int i = 0; i < ifCustomerBought.length; i++) {
 			ifCustomerBought[i] = 0;
@@ -40,30 +41,31 @@ public class A1Jedi {
 			for (int j = 0; j < numOfItemsBought; j++) {
 				int quantityEach = scan.nextInt();
 				String nameOfEach = scan.next();
-				itemsPerCustomer[j] = nameOfEach;
 
 				for (int k = 0; k < numOfItems; k++) {
 
 					if (nameOfEach.equals(namesOfItems[k])) {
 						howManyBought[k] = howManyBought[k] + quantityEach;
-						ifCustomerBought[k]++;
+						nameOfEachItemBought[k] = nameOfEach;
 					}
 				}
-			}
-			for (int j = 0; j < numOfItemsBought; j++) {
-				for(int k = j + 1; k < numOfItemsBought; k++) {
-					if (itemsPerCustomer[j].equals(itemsPerCustomer[k])) {
-						String duplicate = itemsPerCustomer[j];
-						for (int l = 0; l < numOfItems; l++) {
-							if (duplicate.equals(namesOfItems[l])) {
-								ifCustomerBought[l]--;
-							}
-						}
-						
+				itemsPerCustomer[j] = nameOfEach;
+				
+				
+				for (int x = 0; x < j; x++) {
+					if (nameOfEach.equals(itemsPerCustomer[x])) {
+						nameOfEach = "";
 					}
 				}
-			}
+				for (int y = 0; y < numOfItems; y++) {
+					if (nameOfEach.equals(nameOfEachItemBought[y])) {
+						ifCustomerBought[y] ++;
+					}
+				}
+			}			
+
 		}
+
 		for (int j = 0; j < numOfItems; j++) {
 			totalHowManyBought[j] = howManyBought[j];
 			if (ifCustomerBought[j] == 0) {
