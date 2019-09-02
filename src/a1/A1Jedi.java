@@ -6,6 +6,7 @@ public class A1Jedi {
 
 	public static void main(String[] args) {
 
+
 		Scanner scan = new Scanner(System.in);
 
 		int numOfItems = scan.nextInt();
@@ -35,6 +36,7 @@ public class A1Jedi {
 			int numOfItemsBought = scan.nextInt();
 			String[] itemsPerCustomer = new String[numOfItemsBought];
 
+
 			for (int j = 0; j < numOfItemsBought; j++) {
 				int quantityEach = scan.nextInt();
 				String nameOfEach = scan.next();
@@ -47,11 +49,19 @@ public class A1Jedi {
 						ifCustomerBought[k]++;
 					}
 				}
-				
-				// checking specific item arr
-				//				System.out.println(i + ". " + j + ". " + howManyBought[k]);
-				// just to make output look readable when testing
-				//				System.out.println();
+			}
+			for (int j = 0; j < numOfItemsBought; j++) {
+				for(int k = j + 1; k < numOfItemsBought; k++) {
+					if (itemsPerCustomer[j].equals(itemsPerCustomer[k])) {
+						String duplicate = itemsPerCustomer[j];
+						for (int l = 0; l < numOfItems; l++) {
+							if (duplicate.equals(namesOfItems[l])) {
+								ifCustomerBought[l]--;
+							}
+						}
+						
+					}
+				}
 			}
 		}
 		for (int j = 0; j < numOfItems; j++) {
